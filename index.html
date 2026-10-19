@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slopy-AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101323;
+      color: white;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
+    .app {
+      width: 85%;
+      max-width: 600px;
+      text-align: center;
+      padding: 25px;
+      border-radius: 20px;
+      background: #1d223b;
+    }
+    h1 { color: #8b9dff; }
+    input {
+      width: 90%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      margin: 12px 0;
+    }
+    button {
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 10px;
+      background: #6478ff;
+      color: white;
+      cursor: pointer;
+    }
+    #answer { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>🤖 Slopy-AI</h1>
+    <p>Salom! Men Slopy-AI yordamchisiman.</p>
+    <input id="question" placeholder="Savolingni yoz...">
+    <button onclick="askAI()">Yuborish</button>
+    <p id="answer">Savolingni kutyapman!</p>
+  </div>
+  <script>
+    function askAI() {
+      const q = document.getElementById('question').value.trim();
+      document.getElementById('answer').textContent = q
+        ? 'Savoling: ' + q + '\nHozircha AI miyam ulanmagan. Keyingi bosqichda ulaymiz!'
+        : 'Iltimos, avval savol yoz!';
+    }
+  </script>
+</body>
+</html>
