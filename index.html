@@ -87,37 +87,3 @@ async function askAI() {
   }
 }
     
-async function askAI() {
-  const q = document.getElementById('question').value.trim();
-  const answer = document.getElementById('answer');
-
-  if (!q) {
-    answer.textContent = 'Iltimos, avval savol yoz!';
-    return;
-  }
-
-  answer.textContent = 'Slopy-AI o‘ylayapti...';
-
-  try {
-    const response = await fetch(
-      'https://slopy-ai-backend.games-buronboyeb.workers.dev/',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ question: q })
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.error || 'Xatolik yuz berdi');
-    }
-
-    answer.textContent = data.answer || data.response || 'Javob olinmadi.';
-  } catch (error) {
-    answer.textContent = 'Ulanishda xatolik! Internet va serverni tekshir.';
-  }
-}
